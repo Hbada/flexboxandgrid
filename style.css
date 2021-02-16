@@ -36,14 +36,13 @@ h3 {
     /* children now fall inline but adjustable */
     /* children will squish to fit the default row format */
 
-    /* how to make parent responsive; no squishing, suits portfolio */
-    /*flex-wrap: wrap;*/ 
 
     flex-direction: column;
     /* row is default, and children squish together vertically to fit container 
     unless flex-wrap: wrap; is added */
     /* IF USING COLUMN: the justify-content and align-items are reversed */
 
+    /* how to make parent responsive; no squishing, suits portfolio */
     flex-wrap: wrap;
     /* children wrap to next column when they reach bottom of parent */
 
