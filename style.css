@@ -1,0 +1,327 @@
+/* designed with Chrome at 80% zoom */
+/* looks same in Firefox at 100% zoom */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1, p, h4 {
+    text-align: center;
+}
+p {
+    width: 70%; /* applies to large screens */
+    max-width: 700px; /* applies on smaller screens */
+    margin: 0 auto;
+}
+h1 { 
+    padding-top: 2rem;
+}
+h4 {
+    padding: 1rem 0 3rem 0;
+}
+h2 {
+    padding: 2rem 0 0 2rem;
+}
+
+h3 {
+    padding: 0 0 1rem 2rem;
+}
+
+.container {
+    border: 3px solid teal;
+    background: lightgoldenrodyellow;
+    display: flex; /* parent element allows children to flex */
+    /* children now fall inline but adjustable */
+    /* children will squish to fit the default row format */
+
+    /* how to make parent responsive; no squishing, suits portfolio */
+    /*flex-wrap: wrap;*/ 
+
+    flex-direction: column;
+    /* row is default, and children squish together vertically to fit container 
+    unless flex-wrap: wrap; is added */
+    /* IF USING COLUMN: the justify-content and align-items are reversed */
+
+    flex-wrap: wrap;
+    /* children wrap to next column when they reach bottom of parent */
+
+    justify-content: space-evenly; /* spacing for the flex-direction */
+    /* e.g. centred horizontally if using flex-direction: row; */
+    /* space-between, center, space-evenly, space-around are other options */
+
+    /* Combine flex-direction: column; and flex-wrap: wrap; and
+    justify-content: space-evenly; to make a nice grid of children. */
+    /* This combo (and maybe others) prevents squished child elements 
+    so if using photos, make sure they're identical size in pixels */
+
+    /* how to align vertically; requires a height property */
+    height: 50vh;
+    align-items: center; /* alignment of parent opposite its flex-direction */
+    /* e.g. center makes row of children vertically centred if using flex-direction: row; */
+    /* e.g. center makes column of children horizontally centred if using flex-direction: column; */
+    /* flex-end option makes children-as-row fall to the bottom like a footer */
+    /* baseline makes children row align at their bottom edge */
+
+    /* stretch children (row) to fill height of container: */
+    /* align-items: stretch; */
+    /* and remove height from child elements */
+    /* for some reason didn't work for me at first until I changed 
+    justify-content to something other than center,
+    but then when I changed it back to center, the stretch still worked &!?? */
+
+    /* align-content: space-around; */
+    /* aligns children as bundles of rows/columns 
+    so the last doesn't get cut off when browser shrinks. 
+    Not sure what else this affects. */
+    /* Only applies to multiple columns/rows 
+    so make children large enough to take effect.
+    Also requires flex-wrap: wrap; */
+
+}
+
+.container2 {
+    border: 3px solid teal;
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: wrap; 
+    /* nowrap keeps it to a single row of boxes 
+    to learn about flex growth and shrink. */
+
+    justify-content: center; /* spacing for the main axis (row) */
+    align-items: flex-start; /* alignment of parent on contra-axis */
+}
+
+.container3 {
+    height: 50vh;
+    border: 3px solid teal;
+    background: lightblue;
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: wrap; 
+    /* nowrap keeps it to a single row of boxes 
+    to learn about flex growth and shrink. */
+
+    justify-content: center; /* spacing for the main axis (row) */
+    align-items: center; /* alignment of parent on contra-axis */
+    overflow: hidden; /* applies to last box when fully wrapped as column, 
+    so it doesn't overhang the next section's title */}
+
+.container4 {
+    /* height: 50vh; */ /* height not relevant to a column flex-direction */
+    border: 3px solid teal;
+    background: lightpink;
+    display: flex; 
+    flex-direction: column;
+    flex-wrap: wrap; 
+    /* nowrap keeps it to a single row of boxes 
+    to learn about flex growth and shrink. */
+
+    justify-content: center; /* spacing for the main axis (row) */
+    align-items: center; /* alignment of parent on contra-axis */
+    
+}
+
+.container5 {
+    border: 3px solid teal;
+    background: lightskyblue;
+    display: grid; /* more decisive column width than flex methods */
+    
+    /* specify width of each col */
+    /*grid-template-columns: 10rem 1fr 2fr 20rem;*/ 
+    /* 1fr & 2fr act like flex-grow */
+    /* in this setup, column 1 and 4 don't shrink as browser is shrunk */
+    
+    /*grid-template-columns: 1fr 1fr 1fr;*/ 
+    /* 3 equal & responsive columns */
+  
+    /* column setup even more useful way IF cols all same width */
+    grid-template-columns: repeat(3, 1fr); 
+    /* same as 1fr 1fr 1fr */
+    /* to insert blank space at edges */
+    /*grid-template-columns: 5% repeat(2, 1fr) 5%;*/ 
+    /* the 5% signifies columns for margin */
+    /* but then you need to fill them with 'empty' content */
+
+    /* also setup rows */
+    grid-template-rows: 
+        20rem 
+        20rem 
+        10rem; /* size of each row's height */
+    /* if third row has no children it exposes background colour */
+
+    grid-template-areas: 
+        "box14 box14 box16"
+        ". box19 box18"
+        "box15 box19 box17"; /* assign children assigned to grid locations */
+        /* the period indicates a blank spot in the grid 
+        where the background colour shows through */
+    /* columns get messed up if you don't insert every child into a slot 
+        and an item into every available slot */
+    /* And a child can be duplicated ONLY on adjacent slot. */
+
+    /* extra rows can be added by continuing the grid-template-areas pattern */
+
+    grid-gap: 1rem; /* adds gap internally between child elements */
+    /* background colour shows through at blank spots AND the grid gap */
+
+    /* flexbox properties that can be used with grid method also */
+    /*justify-items: stretch;*/ 
+    /*align-items: center;*/ /* requires a grid-template-row entry first */
+
+}
+/*** CHILDREN ***/
+
+.box {
+    height: 10rem;
+    width: 20rem;
+}
+
+.box-row {
+    height: 10rem;
+    width: 20rem;
+}
+
+.box-grid {
+padding: 2rem;
+}
+
+.box1 {
+    background: pink;
+    order: 1; /* Each child can specify its order 
+    but each child needs the order property to work, it seems. */
+    /* Ordering occurs along the parent's flex-direction */
+}
+
+.box2 {
+    background: grey;
+    order: 2;
+}
+
+.box3 {
+    background: green;
+    order: 4;
+}
+
+.box4 {
+    background: violet;
+    order: 3;
+}
+
+.box5 {
+    background: lightcoral;
+    order: 5;
+ }
+
+.box6 {
+    background: purple;
+    order: 6;
+}
+
+/*** CONTAINER 2 CHILDREN ***/
+
+.box7 {
+    /*** FLEX BOX in a row orientation ***/
+    
+    /* Flex-grow makes element occupy MORE space than other elements 
+    IF there's room; other elements won't squish to accomodate this item's growth */
+    /* flex-growth values REQUIRE flex-basis otherwise growth is minimal.
+    NOTE Flex-wrap doesn't work when in Chrome at 100% zoom. */
+
+    /* for flex-wrap: wrap; to work, the child elements (.box above) 
+    need a flex-basis value. The bonus is that wrapped elements grow to fill the row/column. */
+
+
+    /*flex-grow: 2;*/ /* this child twice as big as the others IF there's room */
+    flex-grow: 1; /* size growth factor */
+    /* For wrap to look nice on mobile, set all children to 1 */
+    /* 6 items looks great - 2 rows of 3, or 3 rows of 2, etc; there's never one dangling */
+    /* Growth factor is moderated by browser specs & flex-basis. */
+
+    flex-shrink: 1; /* default is 1; is the multiple of size that
+    this item will never shrink below, on parent's major scale.
+    Based on flex-basis size below. */
+
+    flex-basis: 20rem;
+    /* makes child wrap-able & flex-grow 
+    easier to arrange on parent element's main axis */
+
+    background: lightcoral;
+}
+
+.box8 {
+    flex: 1 1 20rem; /* shortcut for flex-grow, flex-shrink, and flex-basis */
+    /* when all items of a row or column are 1, they occupy equal space */
+    background: lightblue;
+}
+
+.box9 {
+    flex: 1 0 20rem; /* this box won't shrink, it will retain the basis set above */
+    /* hard to tell flex-shrink zero's effect so far */
+    background: grey;
+}
+
+.box10 {
+    flex: 4 1 20rem; /* this item is wider than the others
+    but not by a factor of 4 */
+    background: aqua;
+}
+
+.box11 {
+    flex: 1 1 20rem; /* shortcut for flex-grow, flex-shrink, and flex-basis */
+    /* when all items of a row or column are 1, they occupy equal space */
+    background: green;
+}
+
+.box12 {
+    flex: 1 1 20rem; /* shortcut for flex-grow, flex-shrink, and flex-basis */
+    /* when all items of a row or column are 1, they occupy equal space */
+    background: beige;
+    align-self: flex-end; /* this child goes to bottom/end of the contra-axis */
+    /* when the parent is a row, align-self affects vertical alignment */
+}
+
+.box13 {
+    flex: 1 1 20rem; /* shortcut for flex-grow, flex-shrink, and flex-basis */
+    /* when all items of a row or column are 1, they occupy equal space */
+    background: fuchsia;
+}
+
+/*** grid method starts here ***/
+
+.box14 {
+    background: orange;
+    grid-area: box14;
+}
+
+.box15 {
+   background: brown;
+   grid-area: box15;
+   justify-self: start; /* as seen in flexbox method */
+   /* contents no longer fill the slot */
+   align-self: end; /* applies just like in flexbox method */
+   /* contents move to bottom */
+}
+
+.box16 {
+    background: red;
+    /* grid-area: box16; */ /* this box will use the spanning technique */
+grid-row: 1/3; /* spans from horizontal lines 1 to 3  (box 16 & 18) */
+/* there's also a grid-column to make a box span horizontally across columns */
+}
+
+.box17 {
+    background: darkslategray;
+    grid-area: box17; 
+}
+
+.box18 {
+   background: darkblue;
+   /* grid-area: box18; */ /* need to silence this slot because box 16 occupies it */
+}
+
+.box19 {
+    background: slateblue;
+    grid-area: box19;
+}

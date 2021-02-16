@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Flexbox Demo</title>
+</head>
+
+<body>
+    <h1>Demo of flexbox vs. grid to arrange boxes</h1>
+    <p>Use this as sample code and to try out text and graphics
+    to see how they look on a web page.
+    The teal boxes are the parent/container element</p>
+    <h4>by Heidi Bada</h4>
+    <section>
+    <h2>Demonstrating flexbox parent and child elements</h2>
+    <h3>Using flex-direction set to column and wrap on</h3>
+    <div class="container">
+        <div class="box1 box">
+            <h1>Box 1</h1>
+        </div>
+        <div class="box2 box">
+            <h1>Box 2</h1>
+        </div>
+        <div class="box3 box">
+            <h1>Box 3
+            </h1>
+        </div>
+        <div class="box4 box">
+            <h1>Box 4</h1>
+        </div>
+        <div class="box5 box">
+            <h1>Box 5</h1>
+        </div>
+        <div class="box6 box">
+            <h1>Box 6</h1>
+        </div>
+    </div>
+    <h2>Demonstrating flex growth</h2>
+    <h3>Using just one row of child elements</h3>
+    <div class="container2">
+        <div class="box7 box-row">
+            <h1>Box 7</h1>
+        </div>
+        <div class="box8 box-row">
+            <h1>Box 8</h1>
+        </div>
+        <div class="box9 box-row">
+            <h1>Box 9</h1>
+        </div>
+        <div class="box10 box-row">
+            <h1>Box 10</h1>
+        </div>
+
+    </div>
+    <p>This container doesn't not spill out onto the following title when viewed on small screens.
+        It also is the only design here that doesn't expose a background element, no matter how small the screen is.
+    </p>
+    <h2>Changing child elements' self alignment</h2>
+    <h3>to move each child out of its row</h3>
+    <div class="container3">
+        <div class="box11 box-row"><h1>Box 11</h1></div>
+        <div class="box12 box-row"><h1>Box 12</h1></div>
+        <div class="box13 box-row"><h1>Box 13</h1></div>
+    </div>
+    <p>The alignment takes no effect when viewed on small screen; the row becomes a wide column of 3 boxes.
+            The container is set to "overflow: hidden" to prevent the final box from overhanging 
+            the next title when it runs out of space.
+    </p>
+    <h2>Same but with flex-direction set to column 
+    </h2>
+    <h3>to move each child out of its column</h3>
+    <div class="container4">
+        <div class="box11 box-row"><h1>Box 11</h1></div>
+        <div class="box12 box-row"><h1>Box 12</h1></div>
+        <div class="box13 box-row"><h1>Box 13</h1></div>
+    </div>
+    <h2>Demonstrating CSS grid method of making columns
+        </h2>
+        <h3>No flex properties at all</h3>
+        <div class="container5">
+            <div class="box14 box-grid"><h1>Box 14</h1></div>
+            <div class="box15 box-grid"><h1>Box 15</h1></div>
+            <div class="box16 box-grid"><h1>Box 16</h1></div>
+            <div class="box17 box-grid"><h1>Box 17</h1></div>
+            <div class="box18 box-grid"><h1>Box 18</h1></div>
+            <div class="box19 box-grid"><h1>Box 19</h1></div>
+        </div>
+</section></body>
+
+</html>
